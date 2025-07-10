@@ -1,0 +1,21 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "18.20.7",
+    "sdksVersions": {
+      "@microsoft/microsoft-graph-client": "3.0.2",
+      "@microsoft/teams-js": "2.24.0"
+    },
+    "version": "1.20.0",
+    "libraryName": "data-bricks-plexus",
+    "libraryId": "8348d385-9eda-4f53-a4bf-c80073db89e9",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "data-bricks-plexus",
+    "solutionShortDescription": "data-bricks-plexus description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

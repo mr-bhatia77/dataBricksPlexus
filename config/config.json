@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "data-bricks-plexus-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/dataBricksPlexus/DataBricksPlexusWebPart.js",
+          "manifest": "./src/webparts/dataBricksPlexus/DataBricksPlexusWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "DataBricksPlexusWebPartStrings": "lib/webparts/dataBricksPlexus/loc/{locale}.js"
+  }
+}

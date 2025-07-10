@@ -1,0 +1,91 @@
+/* Overall layout */
+.layout {
+    display: flex;
+    height: 80vh;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    background-color: #f3f3f3;
+    overflow: hidden;
+    transition: width 0.3s;
+  }
+  .sidebar.collapsed {
+    width: 60px;
+  }
+  .sidebar.expanded {
+    width: 150px;
+  }
+  
+  /* Page heading shifts with sidebar */
+  .page-heading {
+    padding: 10px 0;
+    text-align: center;
+    color: #0871A6;
+    transition: margin-left 0.3s;
+    margin-left: 60px;
+  }
+  .page-heading.shifted {
+    margin-left: 200px;
+  }
+  
+  /* Sidebar item */
+  .home-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    color: #fff;
+  }
+  .home-text {
+    margin-left: 10px;
+    display: none;
+  }
+  .sidebar.expanded .home-text {
+    display: inline-block;
+  }
+  
+  /* Main content area */
+  .content {
+    margin-left:10px;
+    flex: 1;
+    overflow: hidden; /* hide outer scroll */
+  }
+  
+  /* Table wrapper for scrollbars */
+  .table-responsive {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+  
+  /* Prevent table from shrinking: allow horizontal overflow */
+  .table-responsive table {
+    min-width: max-content;
+  }
+  
+  /* Sticky header styling */
+  .sticky-header th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #267E9A;  
+    color: #fff;
+  }
+  
+  .home-icon {
+    font-size: 24px;  /* roughly 32px; adjust to taste */
+  }
+
+  /* Make all table text smaller */
+.table-responsive table th,
+.table-responsive table td {
+  font-size: 11px;
+}
+
+/* Tighter, smaller dropdown */
+.small-select {
+  font-size: 11px;
+  padding: 0.25rem 0.5rem;
+  height: auto;       /* let it size itself */
+  line-height: 1.2;   /* compact the text */
+}

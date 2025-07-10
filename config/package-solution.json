@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "data-bricks-plexus-client-side-solution",
+    "id": "8348d385-9eda-4f53-a4bf-c80073db89e9",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.20.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "data-bricks-plexus description"
+      },
+      "longDescription": {
+        "default": "data-bricks-plexus description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "data-bricks-plexus Feature",
+        "description": "The feature that activates elements of the data-bricks-plexus solution.",
+        "id": "060bd306-4d99-41ca-b996-9baa0e4f1b76",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/data-bricks-plexus.sppkg"
+  }
+}
