@@ -6,7 +6,7 @@
   
   /* Sidebar */
   .sidebar {
-    background-color: #f3f3f3;
+    background-color: #8cb8e0;
     overflow: hidden;
     transition: width 0.3s;
   }
@@ -20,6 +20,8 @@
   /* Page heading shifts with sidebar */
   .page-heading {
     padding: 10px 0;
+    text-decoration: underline;
+    font-weight: bold;
     text-align: center;
     color: #0871A6;
     transition: margin-left 0.3s;
