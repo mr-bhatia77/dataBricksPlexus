@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Table, Form } from 'react-bootstrap';
 import './App.css';
-import { sampleData } from '../services/constants';
 
 interface DataItem {
   id: number;
@@ -16,11 +15,11 @@ interface DataItem {
   startDate: string;
   endDate: string;
   currentFlag: number;
-  deletedFlag: number;
+  deletedFlag: string;
 }
 
-const FETCH_URL = 'https://your.api/endpoint/data';
-const UPDATE_URL = 'https://your.api/endpoint/updateDeleteFlag';
+const FETCH_URL = 'https://vivagoals-qa.analytics.crohnscolitisfoundation.org/vivagoals/show/Databricks/fetchData';
+
 
 const DataBricksPlexusPage: React.FC = () => {
   const [data, setData] = useState<DataItem[]>([]);
@@ -29,12 +28,13 @@ const DataBricksPlexusPage: React.FC = () => {
   useEffect(() => {
     axios.get<DataItem[]>(FETCH_URL)
       .then(res => setData(res.data))
-      .catch(() => setData(sampleData));
+      .catch(() => alert('Something went wrong! Failed to fetch Data!'));
   }, []);
 
   const handleDeleteFlagChange = (identifier: string, value: string) => {
-    const newFlag = parseInt(value, 10);
-    axios.post(UPDATE_URL, { dataSourceIdentifier: identifier, deleteFlag: newFlag })
+    const newFlag = value;
+    const UPDATE_URL = `https://vivagoals-qa.analytics.crohnscolitisfoundation.org/vivagoals/update/DatabricksData/deletedflag/${newFlag}/dataSourceIdentifier/${identifier}`
+    axios.put(UPDATE_URL)
       .then(() => {
         setData(prev =>
           prev.map(item =>
@@ -84,15 +84,15 @@ const DataBricksPlexusPage: React.FC = () => {
               </thead>
               <tbody>
                 {data.map(item => (
-                  <tr key={item.id}>
-                    <td>{item.id}</td>
-                    <td>{item.dataSourceIdentifier}</td>
-                    <td>{item.dataSource}</td>
-                    <td>{item.sourceTable}</td>
-                    <td>{item.object}</td>
-                    <td>{item.startDate}</td>
-                    <td>{item.endDate}</td>
-                    <td>{item.currentFlag}</td>
+                  <tr key={item?.id}>
+                    <td>{item?.id}</td>
+                    <td>{item?.dataSourceIdentifier}</td>
+                    <td>{item?.dataSource}</td>
+                    <td>{item?.sourceTable}</td>
+                    <td>{item?.object}</td>
+                    <td>{new Date(item?.startDate)?.toISOString().slice(0, 10)}</td>
+                    <td>{new Date(item?.endDate)?.toISOString().slice(0, 10)}</td>
+                    <td>{item?.currentFlag?'true':'false'}</td>
                     <td>
                       <Form.Select
                         size="sm"
@@ -100,8 +100,8 @@ const DataBricksPlexusPage: React.FC = () => {
                         value={String(item.deletedFlag)}
                         onChange={e => handleDeleteFlagChange(item.dataSourceIdentifier, e.target.value)}
                       >
-                        <option value="0">0</option>
-                        <option value="1">1</option>
+                        <option value='false'>false</option>
+                        <option value='true'>true</option>
                       </Form.Select>
                     </td> 
                   </tr>

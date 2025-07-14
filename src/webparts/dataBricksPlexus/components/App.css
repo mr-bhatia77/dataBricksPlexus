@@ -1,12 +1,13 @@
 /* Overall layout */
 .layout {
     display: flex;
-    height: 80vh;
+    height: 73vh;
   }
   
   /* Sidebar */
   .sidebar {
     background-color: #8cb8e0;
+    border-radius: 0px 10px 10px 0px;
     overflow: hidden;
     transition: width 0.3s;
   }
