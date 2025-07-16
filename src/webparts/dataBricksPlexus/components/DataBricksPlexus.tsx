@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { IDataBricksPlexusProps } from './IDataBricksPlexusProps';
 import App from './App';
+import { HashRouter } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class DataBricksPlexus extends React.Component<IDataBricksPlexusProps> {
@@ -15,7 +16,9 @@ export default class DataBricksPlexus extends React.Component<IDataBricksPlexusP
 
     return (
       <div>
+        <HashRouter>
         <App></App>
+        </HashRouter>
       </div>
     );
   }
