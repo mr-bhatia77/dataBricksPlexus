@@ -30,7 +30,7 @@ interface DataSetItem {
   recordId: string;
   masterPatientIdentifier: string;
   matchingJobId: string;
-  User_Input: boolean;
+  user_Input: boolean;
 }
 
 const DATASET_FETCH_URL = 'https://vivagoals-qa.analytics.crohnscolitisfoundation.org/vivagoals/show/Databricks/masterTable/Dataset2/fetchData';
@@ -60,13 +60,13 @@ const DataSet2: React.FC = () => {
         setData(prev =>
           prev.map(item =>
             item.masterPatientIdentifier === masterPatientIdentifier && item.recordId === recordId
-              ? { ...item, User_Input: userInputValue === 'true' }
+              ? { ...item, user_Input: userInputValue === 'true' }
               : item
           )
         );
-        alert('User_Input updated successfully');
+        alert('user_Input updated successfully');
       })
-      .catch(() => alert('Failed to update User_Input'));
+      .catch(() => alert('Failed to update user_Input'));
   };
 
   return (
@@ -135,7 +135,7 @@ const DataSet2: React.FC = () => {
                   <Form.Select
                     size="sm"
                     className="small-select"
-                    value={String(item.User_Input)}
+                    value={String(item.user_Input)}
                     onChange={e =>
                       handleUserInputChange(
                         item.masterPatientIdentifier,
